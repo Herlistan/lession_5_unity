@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameController : MonoBehaviour
+namespace Golf
 {
-    // Start is called before the first frame update
-    void Start()
+    public class gameController : MonoBehaviour
     {
-        
-    }
+        // Start is called before the first frame update
+        // вызываем удар + механики, переключение меню
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
+

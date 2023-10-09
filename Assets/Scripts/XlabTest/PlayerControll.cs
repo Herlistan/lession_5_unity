@@ -6,16 +6,11 @@ namespace TestXlab
 {
     public class PlayerControll : MonoBehaviour
     {
-        public Spawner spawner;
+        
         public CloudController cloudController;
         public Change changeWeapon;
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.X))
-            {
-                Debug.Log("X");
-                spawner.Spawn();
-            }
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 Debug.Log("Z");
@@ -27,7 +22,6 @@ namespace TestXlab
                 changeWeapon.Changeweapons();
             }
         }
-
     }
 }
 
