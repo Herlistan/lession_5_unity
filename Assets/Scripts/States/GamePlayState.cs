@@ -4,17 +4,18 @@ using UnityEngine;
 
 namespace Golf
 {
-    public class gameController : MonoBehaviour
+    public class GamePlayState : MonoBehaviour
     {
         // Start is called before the first frame update
-        // вызываем удар + механики, переключение меню
-
-        public MainMenuState mainMenuState;
-
         void Start()
         {
-            mainMenuState.gameObject.SetActive(true);
+        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        
         }
     }
 }
-
