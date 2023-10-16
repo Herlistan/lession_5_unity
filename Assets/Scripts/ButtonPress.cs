@@ -7,11 +7,11 @@ namespace Golf
 {
     public class ButtonPress : MonoBehaviour
     {
-        public PlayAnimation playAnimation;
+        public PlayerController playerControllerAnim;
 
         public void Check()
         {
-            playAnimation.RunAnim();
+            playerControllerAnim.RunAnim();
         }
     }
 }

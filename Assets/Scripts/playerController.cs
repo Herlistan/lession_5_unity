@@ -4,24 +4,23 @@ using UnityEngine;
 
 namespace Golf
 {
-    public class playerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private Player player;
+        public Animator animator;
 
         private void Start()
         {
-            if(player == null)
+            animator = GetComponent<Animator>();
+            if (animator == null)
             {
-                Debug.Log("Player is Null");
+                Debug.Log("Animator is Null");
             }
         }
-
-        void Update()
+        public void RunAnim()
         {
-            if (player == null)
-            {
-                Input.GetMouseButtonDown(0);
-            }
+            animator.SetTrigger("isTrue");
+
+            animator.SetTrigger("isFalse");
         }
     }
 }

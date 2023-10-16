@@ -1,21 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Golf
 {
-    public class GamePlayState : MonoBehaviour
+    public class GamePlayState : GameState
     {
-        // Start is called before the first frame update
-        void Start()
+        public levelController LevelController;
+        public PlayerController playerController;
+        public GameState gameOverState;
+        public TMP_Text scoreText;
+
+        protected override void OnEnable()
         {
-        
+            base.OnEnable();
+            LevelController.enabled= true;
+            playerController.enabled= true;
+
+            GameEvent.onCollisionStones += OnGameOver;
+            GameEvent.onStickHit += OnStickHit;
+        }
+        private void OnStickHit()
+        {
+            scoreText.text = $"Score: {LevelController.score}";
+        }
+        private void OnGameOver()
+        {
+            Exit(); // выключаем себя
+            gameOverState.Enter();
         }
 
-        // Update is called once per frame
-        void Update()
+        protected override void OnDisable()
         {
-        
+            base.OnDisable();
+
+            GameEvent.onCollisionStones -= OnGameOver;
+
+            LevelController.enabled = false;
+            playerController.enabled = false;
         }
     }
 }

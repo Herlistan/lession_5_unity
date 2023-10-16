@@ -7,18 +7,17 @@ namespace Golf
     public class Spawner : MonoBehaviour
     {
         public GameObject[] prefabs;
-        public void Spawn()
-        {
-            Debug.Log("Try spawn!");
 
+        public GameObject Spawn()
+        {
             var prefab = GetRandomPrefabs();
 
             if(prefab == null)
             {
                 Debug.LogError("Spawner - prefab = null");
-                return;
+                return null;
             }
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            return Instantiate(prefab, transform.position, Quaternion.identity);
         }
         
         private GameObject GetRandomPrefabs()

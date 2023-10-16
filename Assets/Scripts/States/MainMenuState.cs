@@ -6,12 +6,23 @@ using UnityEngine.UI;
 
 namespace Golf
 {
-    public class MainMenuState : gameState
+    public class MainMenuState : GameState
     {
-        public gameState gamePlayState;
-        public override void Enter()
+        public levelController levelController;
+        public GameState gamePlayState;
+        public TMP_Text scoreText;
+
+        public void PlayGame()
         {
-            base.Enter();
+            Exit();
+            gamePlayState.Enter();
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            scoreText.text = $"HScore: {levelController.hightScore}";
         }
     }
 }
