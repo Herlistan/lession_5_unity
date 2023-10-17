@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rock
   - Village
+  - House
   layers:
   - Default
   - TransparentFX

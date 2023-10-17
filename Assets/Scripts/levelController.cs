@@ -55,9 +55,6 @@ namespace Golf
             MathDelegate mathDelegate = Add;
             score = mathDelegate(score, 1);
             hightScore = Mathf.Max(hightScore, score);
-            
-            Debug.Log($"score {score} - hightscore {hightScore}");
-            
         }
 
         private void Update()
