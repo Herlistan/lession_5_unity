@@ -17,7 +17,7 @@ namespace Golf
 
         int numberLetter;
 
-        private void Start()
+        private void RandNum()
         {
             numberLetter = Random.Range(0, text.Length);
         }
@@ -37,6 +37,7 @@ namespace Golf
         }
         private void OnGameOver()
         {
+            RandNum();
             LoseText.text = text[numberLetter].text;
             Exit(); // выключаем себя
             gameOverState.Enter();

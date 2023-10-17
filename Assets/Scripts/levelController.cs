@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 
 namespace Golf
@@ -24,7 +23,7 @@ namespace Golf
 
         private List<GameObject> m_stones = new List<GameObject>(16);
 
-        public void ClearStone()
+        public void ClearStone() 
         {
             foreach(var stone in m_stones)
             {
