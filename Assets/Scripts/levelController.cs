@@ -7,6 +7,8 @@ namespace Golf
 {
     public class levelController : MonoBehaviour
     {
+        
+
         public Spawner spawner;
 
         public bool isGameOver = false;
@@ -53,8 +55,9 @@ namespace Golf
             MathDelegate mathDelegate = Add;
             score = mathDelegate(score, 1);
             hightScore = Mathf.Max(hightScore, score);
-
+            
             Debug.Log($"score {score} - hightscore {hightScore}");
+            
         }
 
         private void Update()
@@ -73,6 +76,7 @@ namespace Golf
         {
             range = Random.Range(rangeMin, rangeMax);
             range = Mathf.Max(rangeMin, rangeMax - rangeStep);
+            
         }
         public static int Add(int value1, int value2)
         {

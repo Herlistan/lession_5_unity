@@ -11,6 +11,16 @@ namespace Golf
         public PlayerController playerController;
         public GameState gameOverState;
         public TMP_Text scoreText;
+        public TMP_Text LoseText;
+
+        public TMP_Text[] text;
+
+        int numberLetter;
+
+        private void Start()
+        {
+            numberLetter = Random.Range(0, text.Length);
+        }
 
         protected override void OnEnable()
         {
@@ -27,6 +37,7 @@ namespace Golf
         }
         private void OnGameOver()
         {
+            LoseText.text = text[numberLetter].text;
             Exit(); // выключаем себя
             gameOverState.Enter();
         }

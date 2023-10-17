@@ -10,17 +10,17 @@ namespace Golf
         public Transform Helper;
         public float power = 20f;
 
+        public Animator animator;
+        public float SpeedStep = 0.05f;
+        [SerializeField] private float SpeedControl = 1f;
+
+
         private Vector3 m_lastPosition;
 
         void Update()
         {
             m_lastPosition = Helper.position;
         }
-
-        /*public void SetDown(bool value)
-        {
-            
-        }*/
 
         public void OnCollosoinStick(Collider collider)
         {
@@ -33,8 +33,22 @@ namespace Golf
                 {
                     stone.isAfect= true;
                     GameEvent.StickHit();
+
+                    SpeedAnim();
                 }
             }
+        }
+        public void SpeedAnim()
+        {
+            SpeedControl += SpeedStep;
+            animator.SetFloat("SpeedAnim", SpeedControl);
+
+            //SpeedControl = Mathf.Max(0.10f, SpeedControl - SpeedStep);
+        }
+        public void RestartAnim()
+        {
+            animator.SetFloat("SpeedAnim", 1f);
+            SpeedControl = 1f;
         }
     }
 }
