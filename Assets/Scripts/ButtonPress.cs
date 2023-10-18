@@ -8,10 +8,20 @@ namespace Golf
     public class ButtonPress : MonoBehaviour
     {
         public PlayerController playerControllerAnim;
-
-        public void Check()
+        public RotationPlatform rotationPlatform;
+        
+        private void Check()
         {
             playerControllerAnim.RunAnim();
+        }
+        
+        public void CalledRotationRight()
+        {
+            rotationPlatform.RotatationPlatformRight();
+        }
+        public void CalledRotationLeft()
+        {
+            rotationPlatform.RotatationPlatformLeft();
         }
     }
 }

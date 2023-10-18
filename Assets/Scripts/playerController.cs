@@ -6,7 +6,8 @@ namespace Golf
 {
     public class PlayerController : MonoBehaviour
     {
-        public Animator animator;
+        [SerializeField] private Animator animator;
+        [SerializeField] private RotationPlatform rotationPlatform;
 
         private void Start()
         {
@@ -15,6 +16,18 @@ namespace Golf
             {
                 Debug.Log("Animator is Null");
             }
+        }
+        private void Update()
+        {
+            
+        }
+        public void OnUP()
+        {
+            rotationPlatform.isRotate= false;
+        }
+        public void OnDown()
+        {
+            rotationPlatform.isRotate = true;
         }
         public void RunAnim()
         {
