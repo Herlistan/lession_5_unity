@@ -7,6 +7,7 @@ namespace Golf
     public class Spawner : MonoBehaviour
     {
         public GameObject[] prefabs;
+        public Transform Parent;
 
         public GameObject Spawn()
         {
@@ -17,9 +18,16 @@ namespace Golf
                 Debug.LogError("Spawner - prefab = null");
                 return null;
             }
-            return Instantiate(prefab, transform.position, Quaternion.identity);
+            Parent = transform.parent;
+            GameObject NewStone = Instantiate(prefab, transform.position, Quaternion.identity, Parent);
+            return NewStone;
         }
         
+        public void RemoveParent(GameObject Stone)
+        {
+            Stone.transform.parent = null;
+        }
+
         private GameObject GetRandomPrefabs()
         {
             if (prefabs.Length == 0)

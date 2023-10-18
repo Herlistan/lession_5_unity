@@ -61,6 +61,9 @@ namespace Golf
             if (Time.time >= m_lastSpawnedTime + range)
             {
                 var stone = spawner.Spawn();
+
+                spawner.RemoveParent(stone); // убираем зависимость от родителя
+
                 m_stones.Add( stone );
                 m_lastSpawnedTime = Time.time;
 
