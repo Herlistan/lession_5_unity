@@ -14,7 +14,6 @@ namespace Golf
         {
             playerControllerAnim.RunAnim();
         }
-        
         public void CalledRotationRight()
         {
             rotationPlatform.RotatationPlatformRight();

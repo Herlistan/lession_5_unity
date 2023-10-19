@@ -8,13 +8,15 @@ namespace Golf
 {
     public class MainMenuState : GameState
     {
-        public levelController levelController;
+        public levelController LevelController;
+        public TimerEvent timerEvent;
         public GameState gamePlayState;
         public TMP_Text scoreText;
 
         public void PlayGame()
         {
             Exit();
+            timerEvent.DoTimer();
             gamePlayState.Enter();
         }
 
@@ -22,7 +24,7 @@ namespace Golf
         {
             base.OnEnable();
 
-            scoreText.text = $"HScore: {levelController.hightScore}";
+            scoreText.text = $"HScore: {LevelController.hightScore}";
         }
     }
 }

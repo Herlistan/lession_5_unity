@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Golf
 {
     public class levelController : MonoBehaviour
     {
-        
-
         public Spawner spawner;
 
         public bool isGameOver = false;
@@ -15,6 +15,8 @@ namespace Golf
         public byte rangeMax;
         public float rangeStep = 0.1f;
         private float range;
+
+        
 
         public int score;
         public int hightScore;
@@ -55,6 +57,7 @@ namespace Golf
             score = mathDelegate(score, 1);
             hightScore = Mathf.Max(hightScore, score);
         }
+        
 
         private void Update()
         {
@@ -69,13 +72,12 @@ namespace Golf
 
                 RefreshDelay();
             }
-
+            
         }
         public void RefreshDelay()
         {
             range = Random.Range(rangeMin, rangeMax);
             range = Mathf.Max(rangeMin, rangeMax - rangeStep);
-            
         }
         public static int Add(int value1, int value2)
         {
@@ -83,6 +85,5 @@ namespace Golf
         }
 
         public delegate int MathDelegate(int value1, int value2);
-
     }
 }

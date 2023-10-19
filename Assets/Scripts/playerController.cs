@@ -17,10 +17,6 @@ namespace Golf
                 Debug.Log("Animator is Null");
             }
         }
-        private void Update()
-        {
-            
-        }
         public void OnUP()
         {
             rotationPlatform.isRotate= false;

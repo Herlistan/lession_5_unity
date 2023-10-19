@@ -10,13 +10,19 @@ namespace Golf
         public levelController LevelController;
         public PlayerController playerController;
         public GameState gameOverState;
+        public GameState gameWinState;
         public TMP_Text scoreText;
         public TMP_Text LoseText;
+        public float WinScore;
 
         public TMP_Text[] text;
 
         int numberLetter;
-
+        private void Start()
+        {
+            TimerEvent.TimeIsOver.AddListener(OnGameOver);
+            scoreText.text = $"Score: {LevelController.score} / {WinScore}";
+        }
         private void RandNum()
         {
             numberLetter = Random.Range(0, text.Length);
@@ -33,14 +39,23 @@ namespace Golf
         }
         private void OnStickHit()
         {
-            scoreText.text = $"Score: {LevelController.score}";
+            scoreText.text = $"Score: {LevelController.score} / {WinScore}";
         }
         private void OnGameOver()
         {
             RandNum();
-            LoseText.text = text[numberLetter].text;
+            playerController.OnUP();
             Exit(); // выключаем себя
-            gameOverState.Enter();
+            if(LevelController.score >= WinScore)
+            {
+                gameWinState.Enter();
+            }
+            else
+            {
+                LoseText.text = text[numberLetter].text;
+                gameOverState.Enter();
+            }
+            
         }
 
         protected override void OnDisable()

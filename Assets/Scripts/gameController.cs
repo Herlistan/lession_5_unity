@@ -6,9 +6,6 @@ namespace Golf
 {
     public class gameController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        // вызываем удар + механики, переключение меню
-
         public MainMenuState mainMenuState;
 
         void Start()

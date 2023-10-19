@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Golf
 {
-    public class GameOverState : GameState
+    public class GameWinState : GameState
     {
         public GameState mainMenuState;
         public Player player;
