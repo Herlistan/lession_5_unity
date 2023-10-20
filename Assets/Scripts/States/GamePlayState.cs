@@ -20,7 +20,7 @@ namespace Golf
         int numberLetter;
         private void Start()
         {
-            TimerEvent.TimeIsOver.AddListener(OnGameOver);
+            TimerEvent.TimeIsOver += OnGameOver;
             scoreText.text = $"Score: {LevelController.score} / {WinScore}";
         }
         private void RandNum()

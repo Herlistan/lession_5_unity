@@ -8,7 +8,7 @@ namespace Golf
 {
     public class TimerEvent : MonoBehaviour
     {
-        public static UnityEvent TimeIsOver = new UnityEvent();
+        public static UnityAction TimeIsOver;
 
         public float timeStart;
         public TMP_Text timerText;
